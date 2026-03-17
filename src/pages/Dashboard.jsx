@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import useAuth from '../hooks/useAuth';
-import { Upload, Image as ImageIcon, X, AlertCircle, Activity, ShieldCheck, ShieldAlert, AlertTriangle, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { Upload, Image as ImageIcon, X, AlertCircle, ShieldCheck, ShieldAlert, AlertTriangle, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -155,7 +155,7 @@ const Dashboard = () => {
       case 'safe': return <ShieldCheck size={32} className="text-emerald-500" />;
       case 'borderline': return <AlertTriangle size={32} className="text-amber-500" />;
       case 'not_safe': return <ShieldAlert size={32} className="text-red-500" />;
-      default: return <Activity size={32} />;
+      default: return null;
     }
   };
 
@@ -244,7 +244,6 @@ const Dashboard = () => {
             >
               {isUploading ? (
                 <>
-                  <Activity className="spinner" size={20} />
                   Analyzing Features...
                 </>
               ) : (
@@ -262,7 +261,7 @@ const Dashboard = () => {
         <div className={`results-section glass-panel ${!results && !isUploading ? 'empty-state' : ''}`}>
           {!results && !isUploading && (
             <div className="empty-results">
-              <Activity size={48} className="empty-icon" />
+              <img src="/favicon.png" className="empty-logo" />
               <h3>Awaiting Analysis</h3>
               <p>Upload images and click analyze to view AI fatigue prediction results.</p>
             </div>
@@ -300,7 +299,7 @@ const Dashboard = () => {
               {isVerifying ? (
                 <>
                   <div className="verification-loader mb-6">
-                    <Activity size={48} className="text-blue-500 spinner" />
+                    <img src="/favicon.png" className="loader-logo" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Verifying Instrument</h3>
                   <p className="text-slate-400">AI is analyzing image features to confirm endodontic file authenticity...</p>

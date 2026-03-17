@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { Activity, Mail, ArrowRight, ArrowLeft, AlertCircle, CheckCircle } from 'lucide-react';
+import { Mail, ArrowRight, ArrowLeft, AlertCircle, CheckCircle } from 'lucide-react';
 import './Auth.css';
 
 const ForgotPassword = () => {
@@ -59,7 +59,7 @@ const ForgotPassword = () => {
         
         <div className="auth-header">
           <div className="auth-logo">
-            <Activity size={32} color="var(--primary)" />
+            <img src="/favicon.png" className="auth-logo" />
           </div>
           <h1 className="auth-title">Reset Password</h1>
           <p className="auth-subtitle">Enter your email and we'll send you a recovery OTP</p>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { Activity, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
+import {  Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
 import './Auth.css';
 
 const Login = () => {
@@ -47,7 +47,7 @@ if (!emailPattern.test(email)) {
       <div className="auth-card glass-panel animate-fade-in">
         <div className="auth-header">
           <div className="auth-logo">
-            <Activity size={32} color="var(--primary)" />
+            <img src="/favicon.png" className="auth-logo-img" />
           </div>
           <h1 className="auth-title">Welcome Back</h1>
           <p className="auth-subtitle">Sign in to your EndoLifeScan account to continue</p>

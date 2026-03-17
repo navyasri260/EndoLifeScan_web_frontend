@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { Scan, ShieldCheck, AlertTriangle, Activity } from 'lucide-react';
+import { Scan, ShieldCheck, AlertTriangle } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -29,14 +29,14 @@ const Home = () => {
 
       <div className="features-list">
         <div className="feature-card glass-panel flex p-4 items-center gap-4">
-          <Activity className="text-purple-600 flex-shrink-0" size={28} />
+
           <div>
             <h4 className="font-bold text-slate-800">360° Segmented Capture</h4>
             <p className="text-sm text-slate-500">Ensures complete surface inspection via 3 segments</p>
           </div>
         </div>
 
-        <div className="feature-card glass-panel flex p-4 items-center gap-4">
+        <div className="feature-card glass-panel flex p-4 items-center">
           <ShieldCheck className="text-blue-600 flex-shrink-0" size={28} />
           <div>
             <h4 className="font-bold text-slate-800">Safety-Focused Analysis</h4>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { Activity, LogOut, Settings, User } from 'lucide-react';
+import { LogOut, Settings, User } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -19,7 +19,6 @@ const Navbar = () => {
     <nav className="navbar glass-panel">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          <Activity className="brand-icon" size={28} />
           <span className="brand-text">EndoLifeScan</span>
         </Link>
 

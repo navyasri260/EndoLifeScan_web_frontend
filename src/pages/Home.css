@@ -50,3 +50,9 @@
 .feature-card {
   border: 1px solid var(--border);
 }
+.feature-card {
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px; /* 👈 add this */
+}

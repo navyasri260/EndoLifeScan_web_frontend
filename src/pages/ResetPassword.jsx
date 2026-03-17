@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import api from '../services/api';
-import { Activity, Lock, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { Lock, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
 import './Auth.css';
 
 const ResetPassword = () => {
@@ -63,7 +63,7 @@ const ResetPassword = () => {
       <div className="auth-card glass-panel animate-fade-in">
         <div className="auth-header">
           <div className="auth-logo">
-            <Activity size={32} color="var(--primary)" />
+            <img src="/favicon.png" className="auth-logo-img" />
           </div>
           <h1 className="auth-title">Create New Password</h1>
           <p className="auth-subtitle">Your new password must be securely formed</p>

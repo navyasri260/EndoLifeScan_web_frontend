@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { Activity, Mail, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
 import './Auth.css';
 
 const Signup = () => {
@@ -55,7 +55,7 @@ const Signup = () => {
       <div className="auth-card glass-panel animate-fade-in">
         <div className="auth-header">
           <div className="auth-logo">
-            <Activity size={32} color="var(--primary)" />
+            <img src="/favicon.png" className="auth-logo-img" />
           </div>
           <h1 className="auth-title">Create Account</h1>
           <p className="auth-subtitle">Join EndoLifeScan for AI-powered endodontic file analysis</p>
