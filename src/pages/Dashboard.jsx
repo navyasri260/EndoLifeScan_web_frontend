@@ -71,27 +71,37 @@ const Dashboard = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       setIsVerifying(false);
 
-      if (response.data.status === 'success') {
-        setVerificationResult('verified');
-        // Use real backend results and populate segments
-        const data = response.data;
+      if (response.data.is_endo_file === true) {
+  setVerificationResult('verified');
 
-        // Ensure individual results exist for voting
-        if (!data.segment_results) {
-          // Mapping prediction to per-segment results if not provided
-          const status = data.prediction === 'safe' ? 'Safe' : (data.prediction === 'borderline' ? 'Medium Wear' : 'Unsafe');
-          data.segment_results = [
-            { name: '1st Segment', status: status },
-            { name: '2nd Segment', status: status },
-            { name: '3rd Segment', status: status }
-          ];
-        }
-        setResults(data);
-      } else {
-        setVerificationResult('failed');
-        setError(response.data.message || 'File Not Verified – Please upload valid endodontic file images.');
-      }
-    } catch (err) {
+  const data = response.data;
+
+  if (!data.segment_results) {
+    const status =
+      data.prediction === 'safe'
+        ? 'Safe'
+        : data.prediction === 'borderline'
+        ? 'Medium Wear'
+        : 'Unsafe';
+
+    data.segment_results = [
+      { name: '1st Segment', status },
+      { name: '2nd Segment', status },
+      { name: '3rd Segment', status }
+    ];
+  }
+
+  setResults(data);
+
+} else {
+  setVerificationResult('failed');
+  setError(
+    response.data.message ||
+    'File Not Verified – Please upload valid endodontic file images.'
+  );
+}
+    } 
+    catch (err) {
       console.error(err);
       setIsVerifying(false);
       setVerificationResult('failed');
@@ -261,7 +271,7 @@ const Dashboard = () => {
         <div className={`results-section glass-panel ${!results && !isUploading ? 'empty-state' : ''}`}>
           {!results && !isUploading && (
             <div className="empty-results">
-              <img src="/favicon.png" className="empty-logo" />
+              
               <h3>Awaiting Analysis</h3>
               <p>Upload images and click analyze to view AI fatigue prediction results.</p>
             </div>
@@ -299,7 +309,7 @@ const Dashboard = () => {
               {isVerifying ? (
                 <>
                   <div className="verification-loader mb-6">
-                    <img src="/favicon.png" className="loader-logo" />
+                    <ShieldCheck size={60} className="text-blue-500 animate-pulse" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Verifying Instrument</h3>
                   <p className="text-slate-400">AI is analyzing image features to confirm endodontic file authenticity...</p>
